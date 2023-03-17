@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BiMicrophone } from "react-icons/bi";
 import { useRouter } from "next/navigation";
-// in next 12 we import from next/router, but in next 13 we import from next/navigation instead
+// in next 12 we import from next/router, but in next 13 
+// we import from next/navigation instead
 
 export default function HomeSearch() {
   const [input, setInput] = useState("");
