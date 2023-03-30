@@ -1,3 +1,4 @@
+import WebSearchResults from "@/components/WebSearchResults";
 import Link from "next/link";
 import React from "react";
 
@@ -7,7 +8,8 @@ export default async function webSearchPage({ searchParams }) {
     `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`
   );
   if (!response.ok) {
-    throw new Error();
+    console.log(response)
+    throw new Error("something went wrong!");
   }
   const data = await response.json();
   console.log(data);
@@ -17,9 +19,9 @@ export default async function webSearchPage({ searchParams }) {
       <div className="flex flex-col justify-center items-center pt-10">
         <h1 className="text-3xl mb-4">no result find</h1>
         <p className="text-lg">
-          try search something else or go back page 
+          try search something else or go back 
           <Link className="text-blue-500" href="/">
-            home
+              home
           </Link>{" "}
           page
         </p>
@@ -27,7 +29,7 @@ export default async function webSearchPage({ searchParams }) {
     );
   }
 
-  return <>{results && results.map((result) => <h1>{result.title}</h1>)}</>;
+  return <>{results && <WebSearchResults results={data} />}</>;
 }
 
 /*<script async src="https://cse.google.com/cse.js?cx=b106020ee0a374d95">
