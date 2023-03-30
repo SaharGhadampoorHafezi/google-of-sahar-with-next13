@@ -11,7 +11,7 @@ export default function Home() {
         <Image
           width="300"
           height="100"
-          src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png"
+          src= "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png"
         />
         <HomeSearch />
       </div>
