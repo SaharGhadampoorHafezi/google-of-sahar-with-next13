@@ -3,9 +3,10 @@ import Link from "next/link";
 import React from "react";
 
 export default async function webSearchPage({ searchParams }) {
+  const startIndex = searchParams.start || "1";
   const response = await fetch(
     //https://developers.google.com/custom-search/v1/using_rest?hl=en&authuser=2
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}`
+    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`
   );
   if (!response.ok) {
     console.log(response)
