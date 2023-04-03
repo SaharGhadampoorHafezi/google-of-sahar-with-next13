@@ -4,10 +4,13 @@ import React from "react";
 
 export default async function webSearchPage({ searchParams }) {
   const startIndex = searchParams.start || "1";
-  const response = await fetch(
-    //https://developers.google.com/custom-search/v1/using_rest?hl=en&authuser=2
-    `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`
-  );
+  // const response = await fetch(
+  //   //https://developers.google.com/custom-search/v1/using_rest?hl=en&authuser=2
+  //   `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`
+  // );
+  const response = await fetch (
+    `https://www.googleapis.com/customsearch/v1?key=AIzaSyDMDHAmsmmtwanvjrrplteKavXsAq1O4EA&cx=548702590e7bf4ae2&q=${searchParams.searchTerm}&start=${startIndex}`
+  ); 
   if (!response.ok) {
     console.log(response)
     throw new Error("something went wrong!");
