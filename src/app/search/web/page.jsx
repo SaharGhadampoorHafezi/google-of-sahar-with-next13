@@ -5,7 +5,7 @@ import React from "react";
 export default async function webSearchPage({ searchParams }) {
   const startIndex = searchParams.start || "1";
   // const response = await fetch(
-  //   //https://developers.google.com/custom-search/v1/using_rest?hl=en&authuser=2
+  //   
   //   `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&start=${startIndex}`
   // );
   const response = await fetch (
@@ -16,8 +16,9 @@ export default async function webSearchPage({ searchParams }) {
     throw new Error("something went wrong!");
   }
   const data = await response.json();
-  console.log(data);
+  // console.log("this is data: ", data);
   const results = data.items;
+  // console.log("this is results: ",results); //thats fine, result is fine
   if (!results) {
     return (
       <div className="flex flex-col justify-center items-center pt-10">

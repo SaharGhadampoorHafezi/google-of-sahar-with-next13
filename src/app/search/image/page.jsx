@@ -5,17 +5,19 @@ import React from "react";
 export default async function imageSearchPage({ searchParams }) {
   const startIndex = searchParams.start || "1";
   const response = await fetch(
-    //https://developers.google.com/custom-search/v1/using_rest?hl=en&authuser=2
+    
     // `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${searchParams.searchTerm}&searchType=image&start=${startIndex}`
-    `https://www.googleapis.com/customsearch/v1?key=AIzaSyDMDHAmsmmtwanvjrrplteKavXsAq1O4EA&cx=548702590e7bf4ae2&q=${searchParams.searchTerm}&start=${startIndex}`
+    `https://www.googleapis.com/customsearch/v1?key=AIzaSyDMDHAmsmmtwanvjrrplteKavXsAq1O4EA&cx=548702590e7bf4ae2&q=${searchParams.searchTerm}&searchType=image&start=${startIndex}`
+
   );
   if (!response.ok) {
-    console.log(response)
+    // console.log(response)
     throw new Error("something went wrong!");
   }
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   const results = data.items;
+  console.log(results);
   if (!results) {
     return (
       <div className="flex flex-col justify-center items-center pt-10">
